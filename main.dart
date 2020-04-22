@@ -1,8 +1,16 @@
 
-String token = ";";
+String token = "";
+String input = "3+4*6-8;";
+int pos = 0;
 
 getToken(){
-  token = "#EOF";
+  if(pos < input.length){
+    token = input[pos];
+  } else {
+    token = "#EOF";
+  }
+
+  pos++;
 }
 
 void expression(){
@@ -55,8 +63,16 @@ void secuencia(){
   do{
     expression();
     while(token != ";"){
-      //If not error in expression
+      print(token);
       getToken();
     }
   } while (token != "#EOF");
+
+  print(token);
+}
+
+
+void main(){
+  print('Input: ${input}');
+  secuencia();
 }
